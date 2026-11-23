@@ -1,0 +1,20 @@
+{% assign publication = include.publication %}
+<ul class="publication-links" role="list" aria-label="Publication links">
+  {% if publication.doi %}
+    <li><a href="https://doi.org/{{ publication.doi | escape }}" aria-label="Publisher for {{ publication.title | escape }}">Publisher</a></li>
+  {% elsif publication.publisher_url %}
+    <li><a href="{{ publication.publisher_url | escape }}" aria-label="Publisher for {{ publication.title | escape }}">Publisher</a></li>
+  {% endif %}
+  {% if publication.eprint %}
+    <li><a href="{{ publication.eprint | escape }}" aria-label="IACR ePrint for {{ publication.title | escape }}">IACR ePrint</a></li>
+  {% endif %}
+  {% if publication.arxiv %}
+    <li><a href="{{ publication.arxiv | escape }}" aria-label="arXiv for {{ publication.title | escape }}">arXiv</a></li>
+  {% endif %}
+  {% if publication.pdf %}
+    <li><a href="{{ publication.pdf | escape }}" aria-label="PDF for {{ publication.title | escape }}">PDF</a></li>
+  {% endif %}
+  {% if publication.slides %}
+    <li><a href="{{ publication.slides | escape }}" aria-label="Slides for {{ publication.title | escape }}">Slides</a></li>
+  {% endif %}
+</ul>

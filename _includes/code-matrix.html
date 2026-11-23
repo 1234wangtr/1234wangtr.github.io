@@ -1,0 +1,12 @@
+<div class="code-graphic" aria-hidden="true">
+  <div class="code-graphic__matrix">
+    {% assign code_rows = '100100000010,001000101000,010010000100,000001010001,101000010000,010100001000,000010100001,001001000010' | split: ',' %}
+    {% for row in code_rows %}
+      {% assign bits = row | split: '' %}
+      {% for bit in bits %}
+        <span class="code-graphic__bit{% if bit == '1' %} code-graphic__bit--set{% endif %}">{{ bit }}</span>
+      {% endfor %}
+    {% endfor %}
+  </div>
+  <div class="code-graphic__caption">Binary parity-check matrix</div>
+</div>

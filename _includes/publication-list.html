@@ -1,0 +1,12 @@
+<ul class="publication-list" role="list">
+  {% for entry in include.publications %}
+    <li>
+      <article class="publication-entry">
+        <p class="publication-venue">{{ entry.venue | escape }} · {{ entry.date | date: '%Y' }}{% if entry.category == 'preprints' %} · Preprint{% endif %}</p>
+        <h3><a href="{{ entry.url | relative_url }}">{{ entry.title | escape }}</a></h3>
+        {% include publication-authors.html publication=entry %}
+        {% include publication-links.html publication=entry %}
+      </article>
+    </li>
+  {% endfor %}
+</ul>
